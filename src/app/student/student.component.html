@@ -1,0 +1,21 @@
+<app-navbar [rol]="datos.currentUser.rol" [nombre]="datos.currentUser.nombre"></app-navbar>
+
+<div class="row">
+  <div class="col-md-2">
+    <!-- Inicia -->
+    <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action bg-light" [ngClass]="{'active':numero==1}" (click)="mostrar(1)"> Mis calificaciones <span
+          class="badge badge-secondary" [ngClass]="{'badge-light':numero==1}">{{datos.contCalificaciones}}</span></a>
+      <a class="list-group-item list-group-item-action bg-light" [ngClass]="{'active':numero==2}" (click)="mostrar(2)">Consultar</a>
+      <a class="list-group-item list-group-item-action bg-light" [ngClass]="{'active':numero==3}" (click)="mostrar(3)"> Pendiente <span
+          class="badge badge-secondary" [ngClass]="{'badge-light':numero==3}">{{datos.contPendientes}}</span></a>
+      <a class="list-group-item list-group-item-action bg-light disabled">Opciones</a>
+    </div>
+    <!-- Termina -->
+  </div>
+  <div class="col-md-10">
+    <app-calificaciones *ngIf="numero==1"></app-calificaciones>
+    <app-consultar *ngIf="numero==2"></app-consultar>
+    <app-pendiente *ngIf="numero==3"></app-pendiente>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>Profesor</th>
+      <th>Materia</th>
+      <th>Rating</th>
+      <th>Comentario</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.nombre }}</td>
+      <td><span class="badge badge-success">{{ data.materia }}</span></td>
+      <td>
+        <ngb-rating [(rate)]="data.rate" max="5">
+          <ng-template let-fill="fill" let-index="index" readonly="true">
+            <span class="star" [class.filled]="fill === 100">&#9733;</span>
+          </ng-template>
+        </ngb-rating>
+      </td>
+      <td>{{ data.comentario }}</td>
+      <td><button (click)="eliminar(data)" type="button" class="btn btn-outline-danger"><i class="fa fa-edit"></i></button></td>
+    </tr>
+  </tbody>
+</nz-table>

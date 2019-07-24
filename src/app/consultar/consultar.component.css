@@ -1,0 +1,44 @@
+.search-box {
+    padding: 8px;
+}
+
+.search-box input {
+    width: 188px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.search-box button {
+    width: 90px;
+}
+
+.search-button {
+    margin-right: 8px;
+}
+
+.star {
+    font-size: 1.5rem;
+    color: rgb(175, 175, 175);
+}
+
+.filled {
+    color: rgb(255, 208, 0);
+}
+
+.badge {
+    font-size: 15px;
+}
+
+.avatar {
+    width: 30%;
+    border: 1px solid black;
+}
+
+.modal-body{
+    text-align: center;
+    justify-content: center;
+}
+
+.modal-header{
+    background-color: #0c6d41;
+}

@@ -1,0 +1,24 @@
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>Profesor</th>
+      <th>Materia</th>
+      <th>Rating</th>
+      <th>Comentario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td *ngIf="data.calificado">{{ data.nombre }}</td>
+      <td *ngIf="data.calificado"><span class="badge badge-success">{{ data.materia }}</span></td>
+      <td *ngIf="data.calificado">
+        <ngb-rating [(rate)]="data.rate" max="5" readonly="true">
+          <ng-template let-fill="fill" let-index="index">
+            <span class="star" [class.filled]="fill === 100">&#9733;</span>
+          </ng-template>
+        </ngb-rating>
+      </td>
+      <td *ngIf="data.calificado">{{ data.comentario }}</td>
+    </tr>
+  </tbody>
+</nz-table>

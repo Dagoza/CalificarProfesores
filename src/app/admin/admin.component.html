@@ -1,0 +1,15 @@
+<app-navbar [rol]="datos.currentUser.rol" [nombre]="datos.currentUser.rol"></app-navbar>
+
+<div class="row">
+  <div class="col-md-2">
+    <!-- Inicia -->
+    <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action bg-light" [ngClass]="{'active':numero==2}" (click)="mostrar(2)">Moderar</a>
+      <a class="list-group-item list-group-item-action bg-light disabled">Opciones</a>
+    </div>
+    <!-- Termina -->
+  </div>
+  <div class="col-md-10">
+    <app-moderar *ngIf="numero==2"></app-moderar>
+  </div>
+</div>
