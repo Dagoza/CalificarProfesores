@@ -9,32 +9,42 @@ import { DatosService } from '../Service/datos.service';
 export class ModerarComponent implements OnInit {
   listOfData = [];
   constructor(private data: DatosService) {
-    data.users.forEach(element => {
-      element.calificaciones.forEach(x => {
-        if (x.calificado) { this.listOfData.push(x); }
-      });
-    });
   }
 
   ngOnInit() {
+    this.listOfData = [];
+    this.data.users.forEach(element => {
+      element.calificaciones.forEach(x => {
+        if (x.calificado) {
+          console.log(x);
+          this.listOfData.push(x);
+        }
+      });
+    });
   }
 
   eliminar(data) {
     const pos = { pos: 0, posUsers: 0 };
-    this.data.users.forEach(element => {
+    console.log(data);
+    this.data.users.forEach((element, i) => {
+      console.log(element);
       element.calificaciones.forEach((x, index) => {
+        console.log(x);
+        console.log(x.id === data.id);
+        console.log(index);
+        console.log(i);
         if (x.id === data.id) {
           pos.pos = index;
+          pos.posUsers = i;
         }
       });
     });
-    this.data.users.forEach((element, index) => {
-      if (element.id === this.data.currentUser.id) {
-        pos.posUsers = index;
-      }
-    });
+    console.log(pos);
+    console.log(this.data.users);
     this.data.users[pos.posUsers].calificaciones.splice(pos.pos, 1);
     this.data.currentUser.calificaciones.splice(pos.pos, 1);
+    console.log(this.data.users);
+    this.ngOnInit();
   }
 
 }
